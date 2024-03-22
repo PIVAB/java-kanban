@@ -5,13 +5,13 @@ import ru.yandex.practicum.kanban.entities.Status;
 import ru.yandex.practicum.kanban.entities.SubTask;
 import ru.yandex.practicum.kanban.entities.Task;
 
+import java.util.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class TaskManager {
     private HashMap<Integer, Task> tasks;
     private HashMap<Integer, SubTask> subTasks;
-    private HashMap<Integer, Epic> epics;
+    private Map<Integer, Epic> epics;
     private int sequenceTaskId = 0;
 
     public TaskManager() {
@@ -20,18 +20,17 @@ public class TaskManager {
         epics = new HashMap<>();
     }
 
-    public ArrayList<Task> getAllTasks() {
+    public List<Task> getAllTasks() {
         return new ArrayList<>(tasks.values());
     }
 
-    public ArrayList<SubTask> getAllSubTasks() {
+    public List<SubTask> getAllSubTasks() {
         return new ArrayList<>(subTasks.values());
     }
 
-    public ArrayList<Epic> getAllEpics() {
+    public List<Epic> getAllEpics() {
         return new ArrayList<>(epics.values());
     }
-
     public void clearAllTasks() {
         tasks.clear();
     }
