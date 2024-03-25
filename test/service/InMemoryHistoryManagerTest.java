@@ -1,5 +1,6 @@
 package service;
 
+import java.util.List;
 import java.util.LinkedList;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +28,7 @@ class InMemoryHistoryManagerTest {
         Task task = new Task("Test addNewTask", "Test addNewTask description", NEW);
         HistoryManager historyManager = new InMemoryHistoryManager();
         historyManager.add(task);
-        final LinkedList<Task> history = historyManager.getHistory();
+        List<Task> history = historyManager.getHistory();
         assertNotNull(history, "История не пустая.");
         assertEquals(1, history.size(), "История не пустая.");
     }

@@ -8,6 +8,7 @@ import service.*;
 
 
 class TaskTest {
+    Task task = new Task("Test task", "Test task description", NEW);
 
     @Test
     void taskEqualsIfIdEquals() {
@@ -22,7 +23,7 @@ class TaskTest {
     }
 
     @Test
-    void ShouldNotConflictWhenSetIdAndGenerateId() {
+    void shouldNotConflictWhenSetIdAndGenerateId() {
         TaskManager taskManager = Managers.getDefault();
         Task task = new Task("Test ShouldNotConflictWhenSetIdAndGenerateId",
                 "task", NEW);
@@ -39,9 +40,9 @@ class TaskTest {
 
     @Test
     void addNewTask() {
-        int taskId = task.getId();
         TaskManager taskManager = Managers.getDefault();
         taskManager.makeNewTask(task);
+
         int taskId = task.getId();
 
         final Task savedTask = taskManager.getTaskById(taskId);
@@ -53,6 +54,6 @@ class TaskTest {
 
         assertNotNull(tasks, "Задачи не возвращаются.");
         assertEquals(1, tasks.size(), "Неверное количество задач.");
-        assertEquals(task, tasks.getFirst(), "Задачи не совпадают.");
+        assertEquals(task, tasks.get(0), "Задачи не совпадают.");
     }
 }
