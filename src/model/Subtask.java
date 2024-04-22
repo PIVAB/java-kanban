@@ -2,48 +2,48 @@ package model;
 
 public class Subtask extends Task {
 
-    private int epicId;
+  private int epicId;
 
-    public Subtask(String title, String description, int epicId) {
-        this.title = title;
-        this.description = description;
-        this.epicId = epicId;
-        this.status = TaskStatus.NEW;
-    }
+  public Subtask(String title, String description, int epicId) {
+    this.title = title;
+    this.description = description;
+    this.epicId = epicId;
+    this.status = TaskStatus.NEW;
+  }
 
-    public Subtask(int id, String title, String description, int epicId) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.epicId = epicId;
-        this.status = TaskStatus.NEW;
-    }
+  public Subtask(int id, String title, String description, int epicId) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.epicId = epicId;
+    this.status = TaskStatus.NEW;
+  }
 
-    public Subtask(int id, String title, String description, int epicId, String status) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.epicId = epicId;
-        this.status = TaskStatus.valueOf(status.toUpperCase());
-    }
+  public Subtask(int id, String title, String description, int epicId, String status) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.epicId = epicId;
+    this.status = TaskStatus.valueOf(status.toUpperCase());
+  }
 
 
-    public int getEpicId() {
-        return epicId;
-    }
+  public int getEpicId() {
+    return epicId;
+  }
 
-    public void setEpicId(int epicId) {
-        this.epicId = epicId;
-    }
+  public void setEpicId(int epicId) {
+    this.epicId = epicId;
+  }
 
-    @Override
-    public String toString() {
-        return "Subtask{" +
-                "id=" + id +
-                ". epicId=" + epicId +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Subtask{" +
+        "id=" + id +
+        ". epicId=" + epicId +
+        ", title='" + title + '\'' +
+        ", description='" + description + '\'' +
+        ", status=" + status +
+        '}';
+  }
 }
