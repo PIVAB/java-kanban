@@ -3,24 +3,51 @@ package model;
 import java.util.Objects;
 
 public class Task {
-    private String name;
-    private String description;
-    private TaskStatus status;
-    private int id = 0;
+
+    protected int id;
+    protected String title;
+    protected String description;
+    protected TaskStatus status;
 
 
-    public Task(String name, String description, TaskStatus status) {
-        this.name = name;
+    public Task() {
+    }
+
+    public Task(String title, String description) {
+        this.id = 0;
+        this.title = title;
         this.description = description;
-        this.status = status;
+        this.status = TaskStatus.NEW;
     }
 
-    public String getName() {
-        return name;
+    public Task(int id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.status = TaskStatus.NEW;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Task(int id, String title, String description, String status) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.status = TaskStatus.valueOf(status.toUpperCase());
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -39,33 +66,27 @@ public class Task {
         this.status = status;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        Task task = (Task) object;
-        return id == task.id && Objects.equals(name, task.name)
-                && Objects.equals(description, task.description) && status == task.status;
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                '}';
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, status, id);
+        return Objects.hash(id);
     }
 
     @Override
-    public String toString() {
-        return "{ Название = " + name + "', " +
-                "Описание = " + description + "', " +
-                "Статус = " + status + ", " +
-                "id = " + id + " }";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id;
     }
 }
