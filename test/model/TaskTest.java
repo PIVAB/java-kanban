@@ -31,6 +31,8 @@ class TaskTest {
     assertEquals(task, tasks.get(0), "Задачи не совпадают.");
   }
 
+  //
+
   @Test
   void updateTask() {
     final String newDescription = "new_description";
