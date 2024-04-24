@@ -84,7 +84,7 @@ public class InMemoryTaskManager implements TaskManager {
     public void deleteEpicById(int epicId) {
         Epic savedEpic = epicsDb.get(epicId);
         if (savedEpic != null) {
-            ArrayList<Integer> subtaskIdList = savedEpic.getSubtaskIdList();
+            List<Integer> subtaskIdList = savedEpic.getSubtaskIdList();
             for (int subtaskId : subtaskIdList) {
                 subtaskDb.remove(subtaskId);
             }
@@ -129,7 +129,7 @@ public class InMemoryTaskManager implements TaskManager {
         Epic savedEpic = epicsDb.get(epicId);
         ArrayList<Subtask> subtasks = new ArrayList<>();
         if (savedEpic != null) {
-            ArrayList<Integer> subtasksIds = savedEpic.getSubtaskIdList();
+            List<Integer> subtasksIds = savedEpic.getSubtaskIdList();
             for (int subtaskId : subtasksIds) {
                 subtasks.add(subtaskDb.get(subtaskId));
             }
@@ -178,7 +178,7 @@ public class InMemoryTaskManager implements TaskManager {
     private void updateEpicStatus(int epicId) {
         Epic savedEpic = epicsDb.get(epicId);
         if (savedEpic != null) {
-            ArrayList<Integer> subtaskIds = savedEpic.getSubtaskIdList();
+            List<Integer> subtaskIds = savedEpic.getSubtaskIdList();
 
             TaskStatus epicStatus;
             boolean isNew = false;
